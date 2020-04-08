@@ -1,0 +1,38 @@
+(in-package :rephrase)
+
+(defclass tokenize (rephrase)
+  ((nline :accessor nline)
+   (nposition :accessor nposition)
+   (state :accessor state)
+   (str-stream :accessor str-stream)))
+
+
+(defmethod reset ((self tokenize))
+  (setf (state self) :idle)
+  (setf (nline self) 1)
+  (setf (nposition self) 1))
+
+(defmethod exec ((self tokenize) filename)
+  (let ((str (alexandria:read-file-into-string filename)))
+    (setf (str-stream self) (make-string-input-stream str))
+    (setf (nposition self) 1)
+    (setf (nline self) 1)
+    (setf (state self) :running)
+    (let ((token-list nil)
+	  (c (read (str-stream self) nil :EOF)))
+      (@:loop
+	(@:exit-when (eq :EOF c))
+	(setf c (read (str-stream self) nil :EOF))
+	(incf (nposition self))
+	(let ((tok (make-token :position (nposition self)
+			       :line (nline self)
+                               :kind :character)
+                               :text c))
+	  (setf token-list (cons tok token-list))))
+      (let ((eof-token (make-token :position (nposition self)
+				   :line (nline self)
+				   :kind :eof
+				   :text :eof)))
+	(setf token-list (cons eof-token token-list))
+	(setf token-list (reverse token-list))
+	token-list))))

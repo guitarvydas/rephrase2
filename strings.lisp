@@ -59,5 +59,5 @@
 		   (t
 		    (push (token-text tok) (chars self)))))
 	    )))
-      output)))
+      (reverse output))))
 

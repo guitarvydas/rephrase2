@@ -6,6 +6,9 @@
   position
   line)
 
+(defgeneric exec-with-filename (self filename))
+(defgeneric filter (self token-list))
+
 (defclass parser ()
   ((token-stream :accessor token-stream :initarg :token-stream :initform nil) ;; actually, just a list
    (output-stream :accessor output-stream :initarg :output-stream :initform (make-string-output-stream))

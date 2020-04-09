@@ -15,7 +15,7 @@
 (defmethod filter ((self integers) token-list)
   (flet ((integer? (tok)
 	   (and (eq :character (token-kind tok))
-		(or (and (char>= #\0 (token-text tok)) (char<= #\9 (token-text tok))))))
+		(or (and (char<= #\0 (token-text tok)) (char>= #\9 (token-text tok))))))
 	 (make-integer-token ()
 	   (let ((chars (reverse (chars self))))
 	     (let ((str (with-output-to-string (s)
@@ -55,5 +55,5 @@
 		    (reset self)
 		    (setf (state self) :idle))))
 	    )))
-      output)))
+      (reverse output))))
 

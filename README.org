@@ -2,3 +2,71 @@
   Rephrase: scanner pipeline of tokenizer | comments | spaces | strings | symbols | integers
   see token.lisp for token struct passed down the pipeline
   rp
+* build
+#+name: rephrase2
+#+begin_src lisp :results output
+  (ql:quickload :rephrase2)
+#+end_src
+
+#+name: rephrase2
+#+begin_src lisp
+  (rephrase::test)
+#+end_src
+
+#+name: rephrase2
+#+begin_src lisp
+  (rephrase2::replace-event-refs rephrase2::*test-string*)
+#+end_src
+
+#+RESULTS: rephrase2
+=To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+...
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+....
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+
+==To load "rephrase2":
+  Load 1 ASDF system:
+    rephrase2
+; Loading "rephrase2"
+.
+=  

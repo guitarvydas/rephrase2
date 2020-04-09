@@ -1,4 +1,4 @@
-(defsystem :rephrase
+(defsystem :rephrase2
   :depends-on (:loops :alexandria)
   :around-compile (lambda (next)
                     (proclaim '(optimize (debug 3)
@@ -24,6 +24,5 @@
 								   "integers"
 								))
 				     (:file "parser-mechanisms" :depends-on ("scanner"))
-				     (:file "rp-parser" :depends-on ("scanner" "parser-mechanisms"))
-				     (:file "test" :depends-on ("rp-parser"))))))
+				     (:file "test" :depends-on ("parser-mechanisms"))))))
 

@@ -1,6 +1,6 @@
 (in-package :rephrase)
 
-(defun scanner (filename)
+(defun scanner (str)
   (let ((tokenizer (make-instance 'tokenizer))
 	(comments  (make-instance 'comments))
 	(spaces    (make-instance 'spaces))
@@ -14,7 +14,7 @@
     (reset strings)
     (reset symbols)
     (reset integers)
-    (let ((r (exec-with-filename tokenizer filename)))
+    (let ((r (exec-with-string tokenizer str)))
       (let ((r (filter comments r)))
 	(let ((r (filter strings r)))
 	  (let ((r (filter spaces r)))

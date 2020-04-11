@@ -1,5 +1,6 @@
 (in-package :rephrase)
 
 (defun test ()
-  (scanner (asdf:system-relative-pathname :rephrase2 "test.dsl")))
+  (let ((str (alexandria:read-file-into-string (asdf:system-relative-pathname :rephrase2 "test.dsl"))))
+    (scanner str)))
 

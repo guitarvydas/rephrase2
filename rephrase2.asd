@@ -23,6 +23,5 @@
 								   "symbols"
 								   "integers"
 								))
-				     (:file "parser-mechanisms" :depends-on ("scanner"))
-				     (:file "test" :depends-on ("parser-mechanisms"))))))
+				     (:file "test" :depends-on ("scanner"))))))
 
